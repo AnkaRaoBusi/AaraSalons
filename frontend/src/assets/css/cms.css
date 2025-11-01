@@ -1,0 +1,248 @@
+/* ------------------------------------------------ */
+/* --- AARA Salon CMS Admin Panel Styles --- */
+/* ------------------------------------------------ */
+
+/* Define CMS specific variables for a professional look */
+:root {
+    --cms-primary-dark: #1f2a37; /* Dark blue/gray sidebar */
+    --cms-primary-light: #ffffff; /* White content area */
+    --cms-accent-gold: #C5B358; /* AARA Gold Accent */
+    --cms-text-dark: #333333;
+    --cms-border-color: #e0e0e0;
+    --cms-success-green: #28a745;
+    --cms-danger-red: #dc3545;
+    --cms-warning-yellow: #ffc107;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: var(--cms-text-dark);
+}
+
+.cms-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* -------------------- Sidebar Styling -------------------- */
+.cms-sidebar {
+    width: 250px;
+    background-color: var(--cms-primary-dark);
+    color: var(--cms-primary-light);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.cms-logo {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    color: var(--cms-accent-gold);
+}
+
+.cms-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cms-nav li a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--cms-primary-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cms-nav li a:hover,
+.cms-nav li.active a {
+    background-color: #2b394b;
+    color: var(--cms-accent-gold);
+}
+
+.cms-nav li a i {
+    margin-right: 10px;
+}
+
+/* -------------------- Main Content Styling -------------------- */
+.cms-main-content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.cms-header {
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cms-border-color);
+}
+
+.cms-header h1 {
+    font-size: 2em;
+    color: var(--cms-primary-dark);
+    margin: 0;
+}
+
+.cms-header p {
+    color: #6c757d;
+}
+
+/* -------------------- Form Section -------------------- */
+.cms-form-section, .cms-table-section {
+    background-color: var(--cms-primary-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.cms-form-section h2, .cms-table-section h2 {
+    color: var(--cms-primary-dark);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--cms-text-dark);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cms-border-color);
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding/width calculation */
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--cms-accent-gold);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .half-width {
+    flex: 1;
+}
+
+/* Buttons */
+.cms-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: opacity 0.3s;
+    margin-right: 10px;
+}
+
+.cms-btn:hover {
+    opacity: 0.9;
+}
+
+.primary-btn {
+    background-color: var(--cms-accent-gold);
+    color: var(--cms-primary-dark);
+}
+
+.secondary-btn {
+    background-color: #6c757d;
+    color: var(--cms-primary-light);
+}
+
+.cms-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--cms-border-color);
+    margin: 40px 0;
+}
+
+/* -------------------- Table Styling -------------------- */
+.cms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cms-table th, .cms-table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--cms-border-color);
+}
+
+.cms-table th {
+    background-color: #f8f9fa;
+    font-weight: 700;
+    color: var(--cms-primary-dark);
+}
+
+/* Status Badges */
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.published {
+    background-color: var(--cms-success-green);
+    color: var(--cms-primary-light);
+}
+
+.draft {
+    background-color: var(--cms-warning-yellow);
+    color: var(--cms-primary-dark);
+}
+
+/* Action Buttons in Table */
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.edit-btn {
+    color: #007bff; /* Blue */
+}
+
+.edit-btn:hover {
+    color: #0056b3;
+}
+
+.delete-btn {
+    color: var(--cms-danger-red);
+}
+
+.delete-btn:hover {
+    color: #a71d2a;
+}
