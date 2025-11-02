@@ -99,7 +99,7 @@ const Home = () => {
       {/* LOCATIONS SECTION */}
       <section id="locations" className="section locations-section">
         <h2 className="section-title">Find Your AARA Sanctuary</h2>
-        <p className="tagline-dark">Two convenient, premium locations built for your relaxation.</p>
+        {/* <p className="tagline-dark">Two convenient, premium locations built for your relaxation.</p> */}
 
         <div className="location-container">
           <div className="location-card">

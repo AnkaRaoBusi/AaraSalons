@@ -279,9 +279,9 @@ const Services = () => {
           </div>
         </div>
 
-        <p className="section-note">
+        {/* <p className="section-note">
           *Prices are starting rates and may vary based on hair length, product usage, and stylist level.
-        </p>
+        </p> */}
       </section>
     </>
   )
