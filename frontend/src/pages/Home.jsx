@@ -108,7 +108,7 @@ const Home = () => {
               1st Floor, SBI Building, Nizampet Rd<br />
               Nizampet, Hyderabad, 500090
             </address>
-            <p>Phone: +91 9247522061</p>
+            <p>Phone: +91 9247522063</p>
             <a
               href="https://maps.app.goo.gl/A69N3dNLugy1cT1LA"
               target="_blank"
@@ -138,7 +138,7 @@ const Home = () => {
               <i className="fas fa-star"></i>
             </div>
             <p className="review-text">
-              "The best hair coloring service I've ever had. My stylist, Rhea, was an absolute
+              "The best hair coloring service I've ever had. My stylist, was an absolute
               professional and truly listened to what I wanted. Worth every penny!"
             </p>
             <p className="review-author">— Anjali M.</p>
@@ -155,7 +155,7 @@ const Home = () => {
               "I booked my bridal makeup here and was blown away. Flawless execution and I felt so
               relaxed. The team is genuinely lovely."
             </p>
-            <p className="review-author">— Sarah P.</p>
+            <p className="review-author">— Jahnvi P.</p>
           </div>
           <div className="review-card">
             <div className="star-rating">
@@ -169,7 +169,7 @@ const Home = () => {
               "Great facial treatment! My skin felt rejuvenated. Only slight wait time, but the
               service quality makes up for it. Highly recommend."
             </p>
-            <p className="review-author">— Ben K.</p>
+            <p className="review-author">— Keerthi K.</p>
           </div>
         </div>
         <a

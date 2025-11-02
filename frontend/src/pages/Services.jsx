@@ -1,6 +1,22 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import servicesHeaderImg from '../assets/images/servicesHeader.jpg'
+import womenHaircutImg from '../assets/images/womenHaircut.png'
+import womenHairColorImg from '../assets/images/womenHairColor.png'
+import womenKeratinImg from '../assets/images/womenKeratin.png'
+import womenGoldFacialImg from '../assets/images/womenGoldFacial.png'
+import womenFullbodyWaxImg from '../assets/images/womenFullbodyWax.png'
+import womenManicureImg from '../assets/images/womenManicure.png'
+import bridalMakeupImg from '../assets/images/bridalMakeup.png'
+import womenPartyMakeupImg from '../assets/images/womenPartyMakeup.png'
+import womenEyeMakeupImg from '../assets/images/womenEyeMakeup.png'
+import MenHairCutandBeardImg from '../assets/images/MenHairCutandBeard.png'
+import MenSubtleHighlightsImg from '../assets/images/MenSubtleHighlights.jpg'
+import MenHairSpaImg from '../assets/images/MenHairSpa.png'
+import MenDetanImg from '../assets/images/MenDetan.jpg'
+import MenPedicureImg from '../assets/images/MenPedicure.jpg'
+import MenFacialCleanupImg from '../assets/images/MenFacialCleanup.jpg'
+import GroomMakeupImg from '../assets/images/GroomMakeup.jpg'
 
 const Services = () => {
   const [activeCategory, setActiveCategory] = useState('women')
@@ -40,51 +56,51 @@ const Services = () => {
     'women-hair': [
       {
         title: 'Signature Hair Cut & Wash',
-        image: 'https://placehold.co/400x300/e0b48b/2c1e1c?text=WOMEN+HAIR+CUT',
+        image: womenHaircutImg,
         description: 'A precision cut tailored to your face shape, followed by a luxurious wash and blow-dry.'
       },
       {
         title: 'Global Hair Coloring',
-        image: 'https://placehold.co/400x300/a38060/f9f5f1?text=WOMEN+GLOBAL+COLOR',
+        image: womenHairColorImg,
         description: 'Full coverage color application, using premium, ammonia-free products for vibrant shine.'
       },
       {
         title: 'Keratin Smoothing Treatment',
-        image: 'https://placehold.co/400x300/8d6a45/2c1e1c?text=KERATIN+TREATMENT',
+        image: womenKeratinImg,
         description: 'Eliminate frizz and achieve smooth, straight, manageable hair for months.'
       }
     ],
     'women-skin': [
       {
         title: '24K Gold Luxury Facial',
-        image: 'https://placehold.co/400x300/d4a373/2c1e1c?text=GOLD+FACIAL',
+        image: womenGoldFacialImg,
         description: 'Anti-aging treatment designed to detoxify, hydrate, and restore a youthful glow.'
       },
       {
         title: 'Full Body Waxing (Rica)',
-        image: 'https://placehold.co/400x300/f9f5f1/2c1e1c?text=FULL+BODY+WAX',
+        image: womenFullbodyWaxImg,
         description: 'Gentle and efficient hair removal using premium Italian Rica wax.'
       },
       {
         title: 'Luxury Spa Manicure',
-        image: 'https://placehold.co/400x300/2c1e1c/f9f5f1?text=MANICURE',
+        image: womenManicureImg,
         description: 'Exfoliation, massage, and nail shaping for beautiful, well-nourished hands.'
       }
     ],
     'women-makeup': [
       {
         title: 'The AARA Bridal Package',
-        image: 'https://placehold.co/400x300/a38060/f9f5f1?text=BRIDAL+MAKEUP',
+        image: bridalMakeupImg,
         description: 'Complete look for the big day, including pre-bridal skin prep and trial sessions.'
       },
       {
         title: 'HD Party/Event Makeup',
-        image: 'https://placehold.co/400x300/d4a373/2c1e1c?text=PARTY+MAKEUP',
+        image: womenPartyMakeupImg,
         description: 'Flawless HD application perfect for any evening event or special occasion.'
       },
       {
         title: 'Eye Styling & Lashes',
-        image: 'https://placehold.co/400x300/f9f5f1/2c1e1c?text=EYE+MAKEUP',
+        image: womenEyeMakeupImg,
         description: 'Focus on dramatic eye artistry, including premium strip or cluster lash application.'
       }
     ]
@@ -94,41 +110,41 @@ const Services = () => {
     'men-hair': [
       {
         title: 'The Executive Hair & Beard Service',
-        image: 'https://placehold.co/400x300/2c1e1c/f9f5f1?text=MEN+CUT+BEARD',
+        image: MenHairCutandBeardImg,
         description: 'Precision haircut, hot towel service, and detailed beard shaping/trimming.'
       },
       {
         title: 'Subtle Hair Highlights',
-        image: 'https://placehold.co/400x300/8d6a45/2c1e1c?text=MEN+HIGHLIGHTS',
+        image: MenSubtleHighlightsImg,
         description: 'Natural-looking, low-maintenance highlights for dimension and style.'
       },
       {
         title: 'Deep Conditioning Hair Spa',
-        image: 'https://placehold.co/400x300/e0b48b/2c1e1c?text=HAIR+SPA',
+        image: MenHairSpaImg,
         description: 'Therapeutic spa treatment to nourish the scalp and strengthen hair roots.'
       }
     ],
     'men-skin': [
       {
         title: 'De-Tan Facial Clean-Up',
-        image: 'https://placehold.co/400x300/d4a373/2c1e1c?text=MEN+DETAN',
+        image: MenDetanImg,
         description: 'Targeted treatment to remove sun damage and restore even skin tone.'
       },
       {
         title: 'Sport Pedicure',
-        image: 'https://placehold.co/400x300/f9f5f1/2c1e1c?text=PEDICURE',
+        image: MenPedicureImg,
         description: 'Deep cleansing and relaxation for feet, designed for the active individual.'
       },
       {
         title: 'Basic Refresh Facial',
-        image: 'https://placehold.co/400x300/a38060/f9f5f1?text=FACIAL+CLEANUP',
+        image: MenFacialCleanupImg,
         description: 'Quick, deep-pore cleansing and moisturizing for instant skin revitalization.'
       }
     ],
     'men-makeup': [
       {
         title: 'The AARA Groom Package',
-        image: 'https://placehold.co/400x300/2c1e1c/f9f5f1?text=GROOM+MAKEUP',
+        image: GroomMakeupImg,
         description: 'Natural, non-cakey makeup to conceal imperfections for photos and events.'
       }
     ]
@@ -171,13 +187,13 @@ const Services = () => {
             className={`tab-button ${activeCategory === 'women' ? 'active' : ''}`}
             onClick={() => handleCategoryChange('women')}
           >
-            <i className="fas fa-venus"></i> Women's Services
+            <i className="fas fa-venus"></i> Women&apos;s Services
           </button>
           <button
             className={`tab-button ${activeCategory === 'men' ? 'active' : ''}`}
             onClick={() => handleCategoryChange('men')}
           >
-            <i className="fas fa-mars"></i> Men's Services
+            <i className="fas fa-mars"></i> Men&apos;s Services
           </button>
         </div>
 
@@ -243,7 +259,7 @@ const Services = () => {
                 className={`sub-tab-button ${activeSubCategory.men === 'men-skin' ? 'active' : ''}`}
                 onClick={() => handleSubCategoryChange('men-skin')}
               >
-                Men's Skin Care
+                Men&apos;s Skin Care
               </button>
               <button
                 className={`sub-tab-button ${activeSubCategory.men === 'men-makeup' ? 'active' : ''}`}

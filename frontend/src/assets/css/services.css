@@ -103,7 +103,7 @@ body {
 }
 
 .logo-img {
-    height: 50px;       
+    height: 56px;       
     width: auto;        
     border-radius: 8px;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -162,16 +162,22 @@ body {
 /* ------------------------------------------------ */
 
 .services-header {
+    /* Match the home hero structure: centered, with top gap to account for fixed navbar */
+    width: 90%;
+    margin: 100px auto 40px auto; /* same spacing as .hero-banners */
     background-image: url('/images/servicesHeader.jpg');
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: no-repeat; 
-    height: 80vh; 	 	 	 	 
-    display: flex;
-    align-items: center; 	 	 	
-    justify-content: center; 	  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh; /* match home hero height for consistent layout */
     position: relative;
-    color: #fff; 	 	 	 	 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #fff;
 }
 
 .services-header::before {
@@ -582,6 +588,11 @@ body {
 
     .menu-toggle {
         display: block;
+    }
+
+    /* Make logo slightly smaller on mobile so it fits the navbar */
+    .logo-img {
+        height: 40px;
     }
 
     .services-header {
