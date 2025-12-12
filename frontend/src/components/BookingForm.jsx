@@ -202,7 +202,7 @@ const BookingForm = () => {
             <option value="No Preference">Select Stylist (Optional)</option>
             <option value="Rhea">Nadeem Ali (Master Hair Artist)</option>
             <option value="Vivek">Ayaan (Senior Female Hair Stylist)</option>
-            <option value="Sheefa">Aisha (Beautician)</option>
+            <option value="Sheefa">Sheefa (Beautician)</option>
             <option value="Priya">Krupa (Bridal Makeup Expert)</option>
           </select>
         </div>
