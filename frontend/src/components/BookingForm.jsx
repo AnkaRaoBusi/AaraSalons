@@ -200,10 +200,10 @@ const BookingForm = () => {
             onChange={handleChange}
           >
             <option value="No Preference">Select Stylist (Optional)</option>
-            <option value="Rhea">Rhea (Master Hair Artist)</option>
-            <option value="Vivek">Vivek (Senior Stylist)</option>
-            <option value="Aisha">Aisha (Lead Esthetician)</option>
-            <option value="Priya">Priya (Bridal Makeup Expert)</option>
+            <option value="Rhea">Nadeem Ali (Master Hair Artist)</option>
+            <option value="Vivek">Ayaan (Senior Female Hair Stylist)</option>
+            <option value="Sheefa">Aisha (Beautician)</option>
+            <option value="Priya">Krupa (Bridal Makeup Expert)</option>
           </select>
         </div>
 
