@@ -1,16 +1,27 @@
+// controllers/bookingController.js
 const Booking = require('../models/Booking');
 const { MailerSend, EmailParams, Sender, Recipient } = require('mailersend');
 
-// Initialize MailerSend
-const mailerSend = new MailerSend({
-  apiKey: process.env.API_KEY,
-});
+if (!process.env.API_KEY) {
+  console.error('❌ Missing API_KEY environment variable for MailerSend');
+}
+const mailerSend = new MailerSend({ apiKey: process.env.API_KEY });
 
 const adminEmail = process.env.ADMIN_EMAIL;
+const fromEmail = process.env.FROM_EMAIL || `no-reply@${process.env.MAIL_DOMAIN || 'yourdomain.com'}`;
 
-/**
- * Create booking and send details to admin via email
- */
+function ensureEmailConfig() {
+  const missing = [];
+  if (!process.env.API_KEY) missing.push('API_KEY');
+  if (!adminEmail) missing.push('ADMIN_EMAIL');
+  if (!fromEmail) missing.push('FROM_EMAIL');
+  if (missing.length) {
+    console.warn('⚠️ Missing environment variables:', missing.join(', '));
+    return false;
+  }
+  return true;
+}
+
 exports.createBooking = async (req, res) => {
   try {
     const { name, mobile, service, stylist, date, time } = req.body;
@@ -35,9 +46,18 @@ exports.createBooking = async (req, res) => {
 
     const savedBooking = await booking.save();
 
-    // Send email to admin
+    // Send email to admin (only if mail config exists)
+    if (!ensureEmailConfig()) {
+      console.warn('Email not sent: missing mail configuration. Booking saved.');
+      return res.status(201).json({
+        success: true,
+        message: 'Booking confirmed (email NOT sent — missing mail config).',
+        booking: savedBooking,
+      });
+    }
+
     try {
-      const from = new Sender(process.env.FROM_EMAIL, 'AARA Salon');
+      const from = new Sender(fromEmail, 'AARA Salon');
       const to = [new Recipient(adminEmail, 'Admin')];
 
       const emailParams = new EmailParams()
@@ -57,15 +77,24 @@ exports.createBooking = async (req, res) => {
           <p>📩 Sent automatically by AARA Salon Booking System</p>
         `);
 
-      await mailerSend.email.send(emailParams);
-      console.log('✅ Booking email sent to admin:', adminEmail);
+      const result = await mailerSend.email.send(emailParams);
+      console.log('✅ Booking email send result:', result); // full result from MailerSend
     } catch (emailError) {
-      console.error('❌ Failed to send admin email:', emailError.message);
+      // Log full error (not just message)
+      console.error('❌ Failed to send admin email:', emailError);
+      // return 201 but include info that email failed
+      return res.status(201).json({
+        success: true,
+        message: 'Booking saved but failed to send admin email.',
+        booking: savedBooking,
+        emailError: (emailError && emailError.message) ? emailError.message : String(emailError)
+      });
     }
 
+    // Success
     res.status(201).json({
       success: true,
-      message: 'Booking confirmed successfully!',
+      message: 'Booking confirmed successfully! Admin email sent.',
       booking: savedBooking,
     });
 
@@ -74,18 +103,15 @@ exports.createBooking = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to confirm booking. Please try again.',
+      error: (process.env.NODE_ENV === 'development') ? error.message : undefined
     });
   }
 };
 
-/**
- * Get all bookings
- */
 exports.getAllBookings = async (req, res) => {
   try {
-    // const bookings = await Booking.find().sort({ createdAt: -1 });
-    // res.status(200).json({ success: true, bookings });
-    Hi
+    const bookings = await Booking.find().sort({ createdAt: -1 });
+    res.status(200).json({ success: true, bookings });
   } catch (error) {
     console.error('Error in getAllBookings:', error);
     res.status(500).json({
@@ -95,9 +121,6 @@ exports.getAllBookings = async (req, res) => {
   }
 };
 
-/**
- * Get booking by ID
- */
 exports.getBookingById = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);
