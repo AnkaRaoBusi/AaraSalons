@@ -1,14 +1,21 @@
-// controllers/bookingController.js
+// src/controllers/bookingController.js
 const Booking = require('../models/Booking');
 const { MailerSend, EmailParams, Sender, Recipient } = require('mailersend');
 
+// Basic env checks
 if (!process.env.API_KEY) {
-  console.error('❌ Missing API_KEY environment variable for MailerSend');
+  console.warn('⚠️ Warning: process.env.API_KEY is not set (MailerSend API key)');
 }
-const mailerSend = new MailerSend({ apiKey: process.env.API_KEY });
+if (!process.env.ADMIN_EMAIL) {
+  console.warn('⚠️ Warning: process.env.ADMIN_EMAIL is not set');
+}
+if (!process.env.FROM_EMAIL) {
+  console.warn('⚠️ Warning: process.env.FROM_EMAIL is not set');
+}
 
+const mailerSend = new MailerSend({ apiKey: process.env.API_KEY });
 const adminEmail = process.env.ADMIN_EMAIL;
-const fromEmail = process.env.FROM_EMAIL || `no-reply@${process.env.MAIL_DOMAIN || 'yourdomain.com'}`;
+const fromEmail = process.env.FROM_EMAIL || `no-reply@${process.env.MAIL_DOMAIN || 'aarasalons.com'}`;
 
 function ensureEmailConfig() {
   const missing = [];
@@ -16,7 +23,7 @@ function ensureEmailConfig() {
   if (!adminEmail) missing.push('ADMIN_EMAIL');
   if (!fromEmail) missing.push('FROM_EMAIL');
   if (missing.length) {
-    console.warn('⚠️ Missing environment variables:', missing.join(', '));
+    console.warn('⚠️ Missing environment variables for email:', missing.join(', '));
     return false;
   }
   return true;
@@ -45,8 +52,9 @@ exports.createBooking = async (req, res) => {
     });
 
     const savedBooking = await booking.save();
+    console.log('✅ Booking saved:', savedBooking._id);
 
-    // Send email to admin (only if mail config exists)
+    // If email config missing, return (booking saved)
     if (!ensureEmailConfig()) {
       console.warn('Email not sent: missing mail configuration. Booking saved.');
       return res.status(201).json({
@@ -56,6 +64,7 @@ exports.createBooking = async (req, res) => {
       });
     }
 
+    // Prepare email
     try {
       const from = new Sender(fromEmail, 'AARA Salon');
       const to = [new Recipient(adminEmail, 'Admin')];
@@ -78,20 +87,32 @@ exports.createBooking = async (req, res) => {
         `);
 
       const result = await mailerSend.email.send(emailParams);
-      console.log('✅ Booking email send result:', result); // full result from MailerSend
+
+      // Log full result for debugging in case of delivery issues
+      console.log('✅ Booking email send result (MailerSend):', JSON.stringify(result, null, 2));
+
     } catch (emailError) {
-      // Log full error (not just message)
-      console.error('❌ Failed to send admin email:', emailError);
-      // return 201 but include info that email failed
+      // Full error logging so you don't get "undefined"
+      console.error('❌ Failed to send admin email - full error:', emailError);
+      if (emailError && emailError.response) {
+        console.error('❌ MailerSend response:', emailError.response);
+        try {
+          console.error('❌ MailerSend response body:', JSON.stringify(emailError.response.body || emailError.response, null, 2));
+        } catch (e) {
+          console.error('❌ Could not stringify response body', e);
+        }
+      }
+
+      // Return booking success but inform that email failed
       return res.status(201).json({
         success: true,
         message: 'Booking saved but failed to send admin email.',
         booking: savedBooking,
-        emailError: (emailError && emailError.message) ? emailError.message : String(emailError)
+        emailError: (emailError && emailError.message) ? emailError.message : 'See server logs for full error'
       });
     }
 
-    // Success
+    // If we reached here, email was sent
     res.status(201).json({
       success: true,
       message: 'Booking confirmed successfully! Admin email sent.',
@@ -103,7 +124,7 @@ exports.createBooking = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to confirm booking. Please try again.',
-      error: (process.env.NODE_ENV === 'development') ? error.message : undefined
+      error: (process.env.NODE_ENV === 'development') ? (error && error.message) : undefined
     });
   }
 };
