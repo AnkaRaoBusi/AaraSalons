@@ -82,7 +82,7 @@ const Home = () => {
           </div>
         </div>
         <a
-  href=".//assets/ServiceMenu.pdf"
+  href=".//assets/catalog_compressed.pdf"
   className="secondary-button"
   target="_blank"
   rel="noopener noreferrer"
