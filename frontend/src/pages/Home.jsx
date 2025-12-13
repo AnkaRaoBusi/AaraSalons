@@ -82,15 +82,14 @@ const Home = () => {
           </div>
         </div>
         <a
-          href="/services"
-          className="secondary-button"
-          onClick={(e) => {
-            e.preventDefault()
-            window.location.href = '/services'
-          }}
-        >
-          View Service Menu & Book
-        </a>
+  href=".//assets/ServiceMenu.pdf"
+  className="secondary-button"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Service Menu (PDF)
+</a>
+
       </section>
 
       {/* BOOKING SECTION */}
@@ -108,9 +107,9 @@ const Home = () => {
               1st Floor, SBI Building, Nizampet Rd<br />
               Nizampet, Hyderabad, 500090
             </address>
-            <p>Phone: +91 9247522063</p>
+            <p>Phone: +91 9247522061</p>
             <a
-              href="https://maps.app.goo.gl/A69N3dNLugy1cT1LA"
+              href="https://maps.app.goo.gl/CaoXiRGSqCjDpb7KA"
               target="_blank"
               rel="noopener noreferrer"
               className="location-link"
