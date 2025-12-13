@@ -138,7 +138,7 @@ const BookingForm = () => {
     <section id="booking" className="section booking-section">
       <h2 className="section-title">Reserve Your Moment of Indulgence</h2>
       <p className="tagline-dark">
-        A private experience with our master artists awaits you.
+        An extraordinary beauty experience with our master artists awaits you.
       </p>
 
       <form id="booking-form" className="booking-form" onSubmit={handleSubmit}>
@@ -174,23 +174,21 @@ const BookingForm = () => {
 
         {/* Service */}
         <div className="form-field-wrapper">
-          <select
-            name="service"
-            value={formData.service}
-            onChange={handleChange}
-            className={errors.service ? "error" : ""}
-            required
-          >
-            <option value="">Select a Primary Service</option>
-            <option value="Hair">Hair Styling/Cut</option>
-            <option value="Color">Hair Colouring</option>
-            <option value="Makeup">Makeup Consultation (Bridal/Party)</option>
-            <option value="Skin">Skincare/Facial</option>
-          </select>
-          {errors.service && (
-            <span className="error-message">{errors.service}</span>
-          )}
-        </div>
+  <select
+    name="service"
+    value={formData.service}
+    onChange={handleChange}
+    className={errors.service ? "error" : ""}
+    required
+  >
+    <option value="">Enter Your Service *</option>
+  </select>
+
+  {errors.service && (
+    <span className="error-message">{errors.service}</span>
+  )}
+</div>
+
 
         {/* Stylist */}
         <div className="form-field-wrapper">
