@@ -141,10 +141,9 @@ const Home = () => {
               <i className="fas fa-star"></i>
             </div>
             <p className="review-text">
-              "The best hair coloring service I've ever had. My stylist, was an absolute
-              professional and truly listened to what I wanted. Worth every penny!"
+              "Hi myself Vandana I took service in Aara salon it was a Gud experience because of their services like facial ,hair spa , pedicure and manicure is awesome I really thankful to shifa . She have lot of patience and also she made my day . Krupa have lot information and follow up in call. I really loved there services I became beautiful thanks to Aara team💕"
             </p>
-            <p className="review-author">— Anjali M.</p>
+            <p className="review-author">— Vandhana.</p>
           </div>
           <div className="review-card">
             <div className="star-rating">
@@ -155,10 +154,10 @@ const Home = () => {
               <i className="fas fa-star"></i>
             </div>
             <p className="review-text">
-              "I booked my bridal makeup here and was blown away. Flawless execution and I felt so
-              relaxed. The team is genuinely lovely."
+              "Thankyou @ali 🤗
+I recently got my haircut done here, and the service was quite good. The staff were polite, they listened to what I wanted, and the haircut came out neat and well-shaped. The place was clean, and the overall experience was comfortable. I’ll consider coming back again...."
             </p>
-            <p className="review-author">— Jahnvi P.</p>
+            <p className="review-author">— Sushma Nalluri.</p>
           </div>
           <div className="review-card">
             <div className="star-rating">
@@ -169,10 +168,9 @@ const Home = () => {
               <i className="fas fa-star-half-alt"></i>
             </div>
             <p className="review-text">
-              "Great facial treatment! My skin felt rejuvenated. Only slight wait time, but the
-              service quality makes up for it. Highly recommend."
+              "I had my haircut done by Ali and I’m extremely happy with the result. He’s skilled, patient, and paid attention to every detail. The service was outstanding. Highly recommended!"
             </p>
-            <p className="review-author">— Keerthi K.</p>
+            <p className="review-author">— Bhanu Madivada.</p>
           </div>
         </div>
         <a
