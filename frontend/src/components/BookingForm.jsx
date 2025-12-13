@@ -173,21 +173,22 @@ const BookingForm = () => {
         </div>
 
         {/* Service */}
-        <div className="form-field-wrapper">
-  <select
+       <div className="form-field-wrapper">
+  <input
+    type="text"
     name="service"
+    placeholder="Enter Your Service *"
     value={formData.service}
     onChange={handleChange}
     className={errors.service ? "error" : ""}
     required
-  >
-    <option value="">Enter Your Service *</option>
-  </select>
+  />
 
   {errors.service && (
     <span className="error-message">{errors.service}</span>
   )}
 </div>
+
 
 
         {/* Stylist */}
