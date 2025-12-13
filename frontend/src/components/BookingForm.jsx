@@ -173,21 +173,34 @@ const BookingForm = () => {
         </div>
 
         {/* Service */}
-       <div className="form-field-wrapper">
-  <input
-    type="text"
+      <div className="form-field-wrapper">
+  <select
     name="service"
-    placeholder="Enter Your Service *"
     value={formData.service}
     onChange={handleChange}
     className={errors.service ? "error" : ""}
     required
-  />
+  >
+    <option value="">Select Your Primary Service *</option>
+
+    <option value="Haircut / Styling">Haircut / Hair Styling</option>
+    <option value="Hair Colouring">Hair Colouring</option>
+    <option value="Makeup (Bridal / Party)">Makeup – Bridal / Party</option>
+    <option value="Skincare / Facial">Skincare / Facial Treatment</option>
+  
+    {/* Fill-in-the-blank style options */}
+    <option disabled>────────── Additional Options ──────────</option>
+    <option value="Other: Hair Service">Other Hair Service (Specify)</option>
+    <option value="Other: Skin Service">Other Skin Service (Specify)</option>
+    <option value="Other: Makeup Service">Other Makeup Service (Specify)</option>
+    <option value="Custom Request">Custom Request (Describe in Notes)</option>
+  </select>
 
   {errors.service && (
     <span className="error-message">{errors.service}</span>
   )}
 </div>
+
 
 
 
