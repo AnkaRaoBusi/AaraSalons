@@ -1,7 +1,7 @@
 import HeroSlider from '../components/HeroSlider'
 import BookingForm from '../components/BookingForm'
 import aboutImg from '../assets/images/about.jpg'
-import catalogPDF from "../../assets/catalog_compressed.pdf";
+import catalogPDF from "../assets/catalog_compressed.pdf";
 
 
 const Home = () => {
