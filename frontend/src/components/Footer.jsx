@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-grid">
         <div className="footer-col">
           <h3 className="footer-logo">AARA Salon</h3>
-          <p>Excellence in Hair, Makeup, and Skin.</p>
+          <p>Excellence in Hair, Beauty, Makeup, and Nails.</p>
         </div>
         <div className="footer-col">
           <h4>Quick Links</h4>
@@ -26,8 +26,8 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/aarasalons?igsh=cjV4ZGQ4aWF6MWFn" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1AXNFLGKZB/" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
             <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
           </div>
         </div>
