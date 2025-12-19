@@ -1,5 +1,6 @@
 import HeroSlider from '../components/HeroSlider'
 import BookingForm from '../components/BookingForm'
+import OffersSection from '../components/OffersSection'
 import aboutImg from '../assets/images/about.jpg'
 import catalogPDF from "../assets/catalog_compressed.pdf";
 
