@@ -16,6 +16,7 @@ const Home = () => {
   return (
     <>
       <HeroSlider />
+      <OffersSection />
 
       {/* ABOUT SECTION */}
       <section id="about" className="section about-section">
