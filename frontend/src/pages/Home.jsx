@@ -1,6 +1,6 @@
 import HeroSlider from '../components/HeroSlider'
 import BookingForm from '../components/BookingForm'
-import OffersSection from '../components/OffersSection'
+// import OffersSection from '../components/OffersSection'
 import aboutImg from '../assets/images/about.jpg'
 import catalogPDF from "../assets/catalog_compressed.pdf";
 
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <HeroSlider />
-      <OffersSection />
+      {/* <OffersSection /> */}
 
       {/* ABOUT SECTION */}
       <section id="about" className="section about-section">
