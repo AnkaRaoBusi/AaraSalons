@@ -156,7 +156,6 @@ body {
 }
 
 .logo-img {
-    /* height: 70px;  */
     height: 56px; 
     width: auto; 
     border-radius: 8px; 
@@ -892,7 +891,7 @@ body {
         order: 1;
         margin-bottom: 30px;
     }
-
+    
     .about-image.animated-oval {
         aspect-ratio: 1 / 1; 
         border-radius: 50%; 
